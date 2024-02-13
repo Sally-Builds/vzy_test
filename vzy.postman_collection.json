@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "702b92af-b6fe-4724-b0b9-ba772463b75b",
+		"name": "vzy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6718885"
+	},
+	"item": [
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstname\": \"John\",\n  \"surname\": \"Doe\",\n  \"phone\": \"1234567890\",\n  \"email\": \"john1.doe@example.com\",\n  \"password\": \"test1234\",\n  \"address\": \"123 Main St, City\",\n  \"gender\": \"MALE\",\n  \"date_of_birth\": \"1990-01-01\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update me",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2I1Zjc3ZDYyZWFlZjVlYjA5MWJhZCIsImlhdCI6MTcwNzgyNzMzMiwiZXhwIjoxNzA3ODI3MzkyfQ.H2BpvFpbTaU1pmBjqzQD_9Fpox0glpzUKyuZrjBFf90",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"address\": \"123 Main St, Cit\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "webhook",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YjA4MDBjY2FkOWZmMjNhZGI1M2IyOCIsImlhdCI6MTcwNjA2NTk0MSwiZXhwIjoxNzA4NjU3OTQxfQ.P9K-wLTHEN0PwAmUH9OrDsZTGMvgx07qdqRjIrvRWgs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "stripe-signature",
+						"value": "apk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"evt_1ABCDEFGHIJK\",\n  \"object\": \"event\",\n  \"api_version\": \"2020-08-27\",\n  \"created\": 1644072572,\n  \"type\": \"payment_intent.succeeded\",\n  \"data\": {\n    \"object\": {\n      \"id\": \"pi_1JKLMNOPQRST\",\n      \"object\": \"payment_intent\",\n      \"amount\": 2100,\n      \"amount_received\": 2000,\n      \"currency\": \"usd\",\n      \"created\": 1644072571,\n      \"metadata\": {\n        \"userUID\": \"c11f05a9-7d79-47a2-a8d3-2e4e64e002fb\"\n      },\n      \"status\": \"succeeded\"\n    }\n  }\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/payments",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"john1.doe@example.com\",\n  \"password\": \"test1234\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get me",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2I1Zjc3ZDYyZWFlZjVlYjA5MWJhZCIsImlhdCI6MTcwNzgyNzQwMSwiZXhwIjoxNzA3ODI3NDYxfQ.PFFqBaNOuX9JvPdh1fVLCT7P-aErn91MMIBn7hj7wr4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
