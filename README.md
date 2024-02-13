@@ -134,15 +134,8 @@ live url - https://vzy-14jj.onrender.com/
     * Body:
   ```json
               {
-                "msg": "Created",
-                "data": {
-                  "service": {
-                    "service_name": "Cleaning Service",
-                    "service_description": "Professional cleaning for homes and offices",
-                    "service_logo": "cleaning_logo.png",
-                    "service_color": "#3498db"
-                  }
-                },
-                "statusCode": 201
-              }
+        msg: 'OK',
+        data: null,
+        statusCode: 200
+  }
 ```
