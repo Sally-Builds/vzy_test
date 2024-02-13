@@ -28,7 +28,7 @@ export default class App {
             this.app.use(router.path, router.router);
         });
         this.app.get("/", (req, res, next) => {
-            res.send("Ace Help now Available");
+            res.send("VZY demo now available");
         });
         this.app.get("*", (req, res, next) => {
             res
